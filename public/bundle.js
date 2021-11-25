@@ -10319,6 +10319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message */ "./src/components/message.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -10330,6 +10331,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -10440,7 +10442,13 @@ var Form = function Form(props) {
       error = _useState32[0],
       setError = _useState32[1];
 
-  console.log(error); //onSubmit
+  console.log(error); //Success Message
+
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState34 = _slicedToArray(_useState33, 2),
+      isSuccess = _useState34[0],
+      setIsSuccess = _useState34[1]; //onSubmit
+
 
   var handleAddToCafeList = function handleAddToCafeList(event) {
     event.preventDefault();
@@ -10462,28 +10470,51 @@ var Form = function Form(props) {
     };
     axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/v1/cafes", formToSubmit).then(function (result) {
       console.log(result.data);
-      props.setFormToggle(false); //clear states
-      // setName('')
-      // setAddress('')
-      // setCity('')
-      // setProvince('BC')
-      // setPostalCode('')
-      // setPostalCode('')
-      // setNomadFriendly('')
-      // setOutlet('')
-      // setWifi('')
-      // setNoise('')
-      // setPrice('')
-      // setIs24hs(false)
-      // setOpen('')
-      // setClose('')
-      // setHoliday([
-      //     {day:'M', status:false}, {day:'T', status:false}, {day:'W', status:false},{day:'T', status:false}, {day:'F', status:false}, {day:'S', status:false}, {day:'S', status:false}
-      //     ])
-      // setOpenHoursShow('')
+      setIsSuccess(true);
     })["catch"](function (error) {
       setError(error.response.data);
     });
+  };
+
+  var handleClearForm = function handleClearForm(event) {
+    //clear states
+    setName('');
+    setAddress('');
+    setCity('');
+    setProvince('');
+    setPostalCode('');
+    setPostalCode('');
+    setNomadFriendly('');
+    setOutlet('');
+    setWifi('');
+    setNoise('');
+    setPrice('');
+    setIs24hs(false);
+    setOpen('');
+    setClose('');
+    setHoliday([{
+      day: 'M',
+      status: false
+    }, {
+      day: 'T',
+      status: false
+    }, {
+      day: 'W',
+      status: false
+    }, {
+      day: 'T',
+      status: false
+    }, {
+      day: 'F',
+      status: false
+    }, {
+      day: 'S',
+      status: false
+    }, {
+      day: 'S',
+      status: false
+    }]);
+    setOpenHoursShow('');
   }; //onChanges
 
 
@@ -10573,24 +10604,28 @@ var Form = function Form(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
     required: true,
+    value: name,
     onChange: function onChange(event) {
       return handleNameChange(event);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Address:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
     required: true,
+    value: address,
     onChange: function onChange(event) {
       return handleAddressChange(event);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "City:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
     required: true,
+    value: city,
     onChange: function onChange(event) {
       return handleCityChange(event);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Province:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     defaultValue: "",
     required: true,
+    value: province,
     onChange: function onChange(event) {
       return handleProvinceChange(event);
     }
@@ -10624,12 +10659,14 @@ var Form = function Form(props) {
   }, " YT "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Postal Code:  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, " \u2768e.g. V5Y2Z6\u2769"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
     required: true,
+    value: postalCode,
     onChange: function onChange(event) {
       return handlePostalCodeChange(event);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Nomad Friendly:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     defaultValue: "",
     required: true,
+    value: nomadFriendly,
     onChange: function onChange(event) {
       return handleFriendlyChange(event);
     }
@@ -10645,6 +10682,7 @@ var Form = function Form(props) {
   }, " Nomad Friendly "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Outlet:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     defaultValue: "",
     required: true,
+    value: outlet,
     onChange: function onChange(event) {
       return handleOutletChange(event);
     }
@@ -10660,6 +10698,7 @@ var Form = function Form(props) {
   }, " Many "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Free wifi:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     defaultValue: "",
     required: true,
+    value: wifi,
     onChange: function onChange(event) {
       return handleWifiChange(event);
     }
@@ -10675,6 +10714,7 @@ var Form = function Form(props) {
   }, " Stable "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Noise:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     defaultValue: "",
     required: true,
+    value: noise,
     onChange: function onChange(event) {
       return handleNoiseChange(event);
     }
@@ -10690,6 +10730,7 @@ var Form = function Form(props) {
   }, " Quiet "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Regular Coffee Price:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
     defaultValue: "",
     required: true,
+    value: price,
     onChange: function onChange(event) {
       return handlePriceChange(event);
     }
@@ -10712,6 +10753,7 @@ var Form = function Form(props) {
     type: "checkbox",
     name: "twentyFourHours",
     value: is24hs,
+    checked: is24hs ? true : false,
     onChange: function onChange(event) {
       return handle24hsChange(event);
     }
@@ -10720,12 +10762,14 @@ var Form = function Form(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Open:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "time",
     required: true,
+    value: open,
     onChange: function onChange(event) {
       return handleOpenChange(event);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Close:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "time",
     required: true,
+    value: close,
     onChange: function onChange(event) {
       return handleCloseChange(event);
     }
@@ -10735,6 +10779,7 @@ var Form = function Form(props) {
     type: "checkbox",
     id: "0",
     name: "holiday",
+    checked: holiday[0].status ? true : false,
     onChange: function onChange(event) {
       return handleHolidayChange(event);
     }
@@ -10742,6 +10787,7 @@ var Form = function Form(props) {
     type: "checkbox",
     id: "1",
     name: "holiday",
+    checked: holiday[1].status ? true : false,
     onChange: function onChange(event) {
       return handleHolidayChange(event);
     }
@@ -10749,6 +10795,7 @@ var Form = function Form(props) {
     type: "checkbox",
     id: "2",
     name: "holiday",
+    checked: holiday[2].status ? true : false,
     onChange: function onChange(event) {
       return handleHolidayChange(event);
     }
@@ -10756,6 +10803,7 @@ var Form = function Form(props) {
     type: "checkbox",
     id: "3",
     name: "holiday",
+    checked: holiday[3].status ? true : false,
     onChange: function onChange(event) {
       return handleHolidayChange(event);
     }
@@ -10763,6 +10811,7 @@ var Form = function Form(props) {
     type: "checkbox",
     id: "4",
     name: "holiday",
+    checked: holiday[4].status ? true : false,
     onChange: function onChange(event) {
       return handleHolidayChange(event);
     }
@@ -10770,6 +10819,7 @@ var Form = function Form(props) {
     type: "checkbox",
     id: "5",
     name: "holiday",
+    checked: holiday[5].status ? true : false,
     onChange: function onChange(event) {
       return handleHolidayChange(event);
     }
@@ -10777,12 +10827,17 @@ var Form = function Form(props) {
     type: "checkbox",
     id: "6",
     name: "holiday",
+    checked: holiday[6].status ? true : false,
     onChange: function onChange(event) {
       return handleHolidayChange(event);
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "error"
-  }, error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, error.error) : null));
+  }, error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, error.error) : null), isSuccess ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_message__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    setFormToggle: props.setFormToggle,
+    setIsSuccess: setIsSuccess,
+    handleClearForm: handleClearForm
+  }) : null);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);
@@ -10819,6 +10874,48 @@ var Header = function Header(props) {
 
 /***/ }),
 
+/***/ "./src/components/message.js":
+/*!***********************************!*\
+  !*** ./src/components/message.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var Message = function Message(props) {
+  var handleGoToFinderChange = function handleGoToFinderChange(event) {
+    props.setIsSuccess(false);
+    props.setFormToggle(false);
+  };
+
+  var handleStayInFormChange = function handleStayInFormChange(event) {
+    props.setIsSuccess(false);
+    props.handleClearForm();
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "message"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "New Cafe has been successfully added!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: function onClick(event) {
+      return handleGoToFinderChange(event);
+    }
+  }, "Go to Finder"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: function onClick(event) {
+      return handleStayInFormChange(event);
+    }
+  }, "Add another Cafe"));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Message);
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./style.css":
 /*!*********************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./style.css ***!
@@ -10839,7 +10936,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*************************************/\n/************    Reset   *************/\n/*************************************/\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n\n/*************************************/\n/***********   Variables   ***********/\n/*************************************/\n/*************************************/\n/************   Header   *************/\n/*************************************/\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: #4BAECE;\n  align-items: center;\n}\n\nheader h1 {\n  color: white;\n  padding: 1.5rem;\n}\n\nheader h1 span {\n  font-size: 1rem;\n}\n\nheader button {\n  background-color: white;\n  color: #4BAECE;\n  padding: 0.5rem 2rem;\n  height: 2rem;\n  border: none;\n  border-radius: 30px;\n  margin: 0 1.5rem;\n}\n\n/*************************************/\n/*************   Form   **************/\n/*************************************/\n.form {\n  padding: 3rem 0;\n}\n\n.form form {\n  width: 80%;\n  margin: 0 auto;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-column-gap: 1rem;\n}\n\n.form form label {\n  margin: 0.5rem 0;\n}\n\n.form form input, .form form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #E5D7C0;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.form form label span {\n  color: #898686;\n  font-size: small;\n}\n\n.form form .twentyFourHours {\n  grid-column: 1/3;\n  display: flex;\n  flex-wrap: nowrap;\n  align-items: center;\n  margin: 1rem 0;\n  width: 15%;\n}\n\n.form form .openHours {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.form form .holiday {\n  margin: 0.5rem 0;\n  grid-column: 1/3;\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  width: 90%;\n  align-items: center;\n}\n\n.form form button {\n  display: block;\n  grid-column: 1/3;\n  justify-self: center;\n  width: 30%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem 0;\n  background-color: #4BAECE;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n  color: white;\n}\n\n.form .error {\n  text-align: center;\n  color: #f1807e;\n  margin-top: 1rem;\n}\n\n/*************************************/\n/***********   Finder   *************/\n/*************************************/\n.finder {\n  color: #898686;\n}\n\n.finder .filter {\n  padding: 1.5rem;\n}\n\n.finder .filter h2 {\n  margin-bottom: 1rem;\n}\n\n.finder .filter h2:before {\n  font-family: \"Font Awesome 5 Free\";\n  font-size: 1.2rem;\n  font-weight: 600;\n  content: \"\\f0b0\";\n  margin-right: 0.5rem;\n}\n\n.finder .filter form {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.finder .filter form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  background-color: white;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.finder .filter form input {\n  color: #898686;\n}\n\n@media only screen and (min-width: 800px) {\n  .finder .filter {\n    display: grid;\n    grid-template-columns: 20% 80%;\n    align-items: center;\n  }\n  .finder .filter h2 {\n    grid-column: 1/2;\n    justify-self: start;\n    margin-bottom: 0;\n  }\n  .finder .filter form {\n    grid-column: 2/3;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder .filter form {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n\n.finder ul {\n  padding: 1rem;\n  list-style: none;\n}\n\n.finder ul li {\n  padding: 1rem;\n  margin-bottom: 1rem;\n  background-color: #E5D7C0;\n  border-radius: 20px;\n}\n\n.finder ul li h2 {\n  margin-bottom: 0.5rem;\n}\n\n.finder ul li .detailsWrapper {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 30% 65%;\n  grid-column-gap: 5%;\n  place-items: center;\n}\n\n.finder ul li .detailsWrapper img {\n  width: 100%;\n  grid-column: 1/2;\n}\n\n.finder ul li .detailsWrapper .details {\n  width: 100%;\n  grid-column: 2/3;\n  margin-top: 1rem;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  grid-row-gap: 0.5rem;\n}\n\n.finder ul li .detailsWrapper .details div {\n  display: grid;\n  grid-template-columns: 20% 80%;\n}\n\n.finder ul li .detailsWrapper .details div i {\n  justify-self: center;\n}\n\n.finder ul li .detailsWrapper .details div.featured {\n  color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));\n  padding: 0.2rem;\n  grid-gap: 0 0.1rem;\n}\n\n.finder ul li .detailsWrapper .details .holiday li {\n  font-size: 14px;\n  padding: 0.2rem 0;\n  border-radius: 0;\n  text-align: center;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.open {\n  color: white;\n  background-color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.close {\n  color: white;\n  background-color: #898686;\n}\n\n@media only screen and (min-width: 800px) {\n  .finder ul {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 1rem;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder ul {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n/*************************************/\n/***********   Footer   *************/\n/*************************************/\nfooter p {\n  color: white;\n  background-color: #4BAECE;\n  padding: 1.5rem;\n  text-align: center;\n}\n/*# sourceMappingURL=style.css.map */", "",{"version":3,"sources":["webpack://./src/style.scss","webpack://./style.css"],"names":[],"mappings":"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","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*************************************/\n/************    Reset   *************/\n/*************************************/\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n\n/*************************************/\n/***********   Variables   ***********/\n/*************************************/\n/*************************************/\n/************   Header   *************/\n/*************************************/\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: #4BAECE;\n  align-items: center;\n}\n\nheader h1 {\n  color: white;\n  padding: 1.5rem;\n}\n\nheader h1 span {\n  font-size: 1rem;\n}\n\nheader button {\n  background-color: white;\n  color: #4BAECE;\n  padding: 0.5rem 2rem;\n  height: 2rem;\n  border: none;\n  border-radius: 30px;\n  margin: 0 1.5rem;\n}\n\n/*************************************/\n/*************   Form   **************/\n/*************************************/\n.form {\n  padding: 3rem 0;\n}\n\n.form form {\n  width: 80%;\n  margin: 0 auto;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-column-gap: 1rem;\n}\n\n.form form label {\n  margin: 0.5rem 0;\n}\n\n.form form input, .form form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #E5D7C0;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.form form label span {\n  color: #898686;\n  font-size: small;\n}\n\n.form form .twentyFourHours {\n  grid-column: 1/3;\n  display: flex;\n  flex-wrap: nowrap;\n  align-items: center;\n  margin: 1rem 0;\n  width: 15%;\n}\n\n.form form .openHours {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.form form .holiday {\n  margin: 0.5rem 0;\n  grid-column: 1/3;\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  width: 90%;\n  align-items: center;\n}\n\n.form form button {\n  display: block;\n  grid-column: 1/3;\n  justify-self: center;\n  width: 30%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem 0;\n  background-color: #4BAECE;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n  color: white;\n}\n\n.form .error {\n  text-align: center;\n  color: #f1807e;\n  margin-top: 1rem;\n}\n\n/*************************************/\n/***********   Finder   *************/\n/*************************************/\n.finder {\n  color: #898686;\n}\n\n.finder .filter {\n  padding: 1.5rem;\n}\n\n.finder .filter h2 {\n  margin-bottom: 1rem;\n}\n\n.finder .filter h2:before {\n  font-family: \"Font Awesome 5 Free\";\n  font-size: 1.2rem;\n  font-weight: 600;\n  content: \"\\f0b0\";\n  margin-right: 0.5rem;\n}\n\n.finder .filter form {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.finder .filter form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  background-color: white;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.finder .filter form input {\n  color: #898686;\n}\n\n@media only screen and (min-width: 800px) {\n  .finder .filter {\n    display: grid;\n    grid-template-columns: 20% 80%;\n    align-items: center;\n  }\n  .finder .filter h2 {\n    grid-column: 1/2;\n    justify-self: start;\n    margin-bottom: 0;\n  }\n  .finder .filter form {\n    grid-column: 2/3;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder .filter form {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n\n.finder ul {\n  padding: 1rem;\n  list-style: none;\n}\n\n.finder ul li {\n  padding: 1rem;\n  margin-bottom: 1rem;\n  background-color: #E5D7C0;\n  border-radius: 20px;\n}\n\n.finder ul li h2 {\n  margin-bottom: 0.5rem;\n}\n\n.finder ul li .detailsWrapper {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 30% 65%;\n  grid-column-gap: 5%;\n  place-items: center;\n}\n\n.finder ul li .detailsWrapper img {\n  width: 100%;\n  grid-column: 1/2;\n}\n\n.finder ul li .detailsWrapper .details {\n  width: 100%;\n  grid-column: 2/3;\n  margin-top: 1rem;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  grid-row-gap: 0.5rem;\n}\n\n.finder ul li .detailsWrapper .details div {\n  display: grid;\n  grid-template-columns: 20% 80%;\n}\n\n.finder ul li .detailsWrapper .details div i {\n  justify-self: center;\n}\n\n.finder ul li .detailsWrapper .details div.featured {\n  color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));\n  padding: 0.2rem;\n  grid-gap: 0 0.1rem;\n}\n\n.finder ul li .detailsWrapper .details .holiday li {\n  font-size: 14px;\n  padding: 0.2rem 0;\n  border-radius: 0;\n  text-align: center;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.open {\n  color: white;\n  background-color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.close {\n  color: white;\n  background-color: #898686;\n}\n\n@media only screen and (min-width: 800px) {\n  .finder ul {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 1rem;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder ul {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n/*************************************/\n/***********   Message   *************/\n/*************************************/\n.message {\n  width: 30%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #E5D7C0;\n  display: grid;\n  place-items: center;\n}\n\n/*************************************/\n/***********   Footer   *************/\n/*************************************/\nfooter p {\n  color: white;\n  background-color: #4BAECE;\n  padding: 1.5rem;\n  text-align: center;\n}\n/*# sourceMappingURL=style.css.map */", "",{"version":3,"sources":["webpack://./src/style.scss","webpack://./style.css"],"names":[],"mappings":"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","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

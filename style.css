@@ -273,6 +273,21 @@ header button {
 }
 
 /*************************************/
+/***********   Message   *************/
+/*************************************/
+.message {
+  width: 30%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #E5D7C0;
+  display: grid;
+  place-items: center;
+}
+
+/*************************************/
 /***********   Footer   *************/
 /*************************************/
 footer p {

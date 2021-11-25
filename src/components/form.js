@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Message from './message';
 
 const Form = (props) => {
 
@@ -28,6 +29,10 @@ const Form = (props) => {
     const [error, setError] = useState(null);
     console.log(error)
 
+    //Success Message
+    const [isSuccess, setIsSuccess] = useState(false);
+
+
     //onSubmit
     const handleAddToCafeList = (event) => {
         event.preventDefault();
@@ -52,31 +57,33 @@ const Form = (props) => {
         axios.post(`/api/v1/cafes`, formToSubmit)
         .then(result => {
             console.log(result.data)
-            props.setFormToggle(false)
-            
-            //clear states
-            // setName('')
-            // setAddress('')
-            // setCity('')
-            // setProvince('BC')
-            // setPostalCode('')
-            // setPostalCode('')
-            // setNomadFriendly('')
-            // setOutlet('')
-            // setWifi('')
-            // setNoise('')
-            // setPrice('')
-            // setIs24hs(false)
-            // setOpen('')
-            // setClose('')
-            // setHoliday([
-            //     {day:'M', status:false}, {day:'T', status:false}, {day:'W', status:false},{day:'T', status:false}, {day:'F', status:false}, {day:'S', status:false}, {day:'S', status:false}
-            //     ])
-            // setOpenHoursShow('')
+            setIsSuccess(true);
         })
         .catch(error => {
             setError(error.response.data)
         });
+    }
+
+    const handleClearForm = (event) => { 
+        //clear states
+        setName('')
+        setAddress('')
+        setCity('')
+        setProvince('')
+        setPostalCode('')
+        setPostalCode('')
+        setNomadFriendly('')
+        setOutlet('')
+        setWifi('')
+        setNoise('')
+        setPrice('')
+        setIs24hs(false)
+        setOpen('')
+        setClose('')
+        setHoliday([
+            {day:'M', status:false}, {day:'T', status:false}, {day:'W', status:false},{day:'T', status:false}, {day:'F', status:false}, {day:'S', status:false}, {day:'S', status:false}
+            ])
+        setOpenHoursShow('')
     }
 
 
@@ -170,22 +177,22 @@ const Form = (props) => {
             <form onSubmit={event=> handleAddToCafeList(event)}>
                 <label>
                     Name:
-                    <input type="text" required onChange={event => handleNameChange(event)}/>
+                    <input type="text" required value={name} onChange={event => handleNameChange(event)}/>
                 </label>
 
                 <label>
                     Address:
-                    <input type="text" required onChange={event => handleAddressChange(event)}/>
+                    <input type="text" required value={address} onChange={event => handleAddressChange(event)}/>
                 </label>
 
                 <label>
                     City:
-                    <input type="text" required onChange={event => handleCityChange(event)}/>
+                    <input type="text" required value={city} onChange={event => handleCityChange(event)}/>
                 </label>
 
                 <label>
                     Province:
-                    <select defaultValue='' required onChange={event => handleProvinceChange(event)} >
+                    <select defaultValue='' required value={province} onChange={event => handleProvinceChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='AB'> AB </option>
                         <option value='BC'> BC </option>
@@ -204,12 +211,12 @@ const Form = (props) => {
 
                 <label>
                     Postal Code:  <span> &#10088;e.g. V5Y2Z6&#10089;</span>
-                    <input type="text" required onChange={event => handlePostalCodeChange(event)}/>
+                    <input type="text" required value={postalCode} onChange={event => handlePostalCodeChange(event)}/>
                 </label>
 
                 <label>
                     Nomad Friendly:
-                    <select defaultValue='' required onChange={event => handleFriendlyChange(event)} >
+                    <select defaultValue='' required value={nomadFriendly}onChange={event => handleFriendlyChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not for Nomad </option>
                         <option value='1'> Neutral </option>
@@ -219,7 +226,7 @@ const Form = (props) => {
 
                 <label>
                     Outlet:
-                    <select defaultValue='' required onChange={event => handleOutletChange(event)} >
+                    <select defaultValue='' required value={outlet}onChange={event => handleOutletChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not Available </option>
                         <option value='1'> Available </option>
@@ -229,7 +236,7 @@ const Form = (props) => {
 
                 <label>
                     Free wifi:
-                    <select defaultValue='' required onChange={event => handleWifiChange(event)} >
+                    <select defaultValue='' required value={wifi} onChange={event => handleWifiChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not Available </option>
                         <option value='1'> Available </option>
@@ -239,7 +246,7 @@ const Form = (props) => {
 
                 <label>
                     Noise:
-                    <select defaultValue='' required onChange={event => handleNoiseChange(event)} >
+                    <select defaultValue='' required value={noise} onChange={event => handleNoiseChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Noisy </option>
                         <option value='1'> Moderate </option>
@@ -249,7 +256,7 @@ const Form = (props) => {
 
                 <label>
                     Regular Coffee Price:
-                    <select defaultValue='' required onChange={event => handlePriceChange(event)} >
+                    <select defaultValue='' required value={price}onChange={event => handlePriceChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='1'> - $1.99 </option>
                         <option value='2'> $2.00 - $2.99 </option>
@@ -261,19 +268,19 @@ const Form = (props) => {
 
                 <label className="twentyFourHours">
                     24hours:
-                    <input type="checkbox" name="twentyFourHours" value={is24hs} onChange={event => handle24hsChange(event)}/>
+                    <input type="checkbox" name="twentyFourHours" value={is24hs} checked={is24hs? true : false} onChange={event => handle24hsChange(event)}/>
                 </label>
 
                 {openHoursShow ? 
                     <div className="openHours">
                         <label>
                             Open:
-                            <input type="time" required onChange={event => handleOpenChange(event)}/>
+                            <input type="time" required value={open}onChange={event => handleOpenChange(event)}/>
                         </label>
 
                         <label>
                             Close:
-                            <input type="time" required onChange={event => handleCloseChange(event)}/>
+                            <input type="time" required value={close}onChange={event => handleCloseChange(event)}/>
                         </label>
                     </div>
                     : null
@@ -282,31 +289,38 @@ const Form = (props) => {
                     <p>Holiday:</p>
                     <label>
                         Mon
-                        <input type="checkbox" id="0" name="holiday" onChange={event => handleHolidayChange(event)}/>
+                        <input type="checkbox" id="0" name="holiday" checked={holiday[0].status ? true : false}
+                        onChange={event => handleHolidayChange(event)}/>
                     </label>
                     <label>
                         Tue
-                        <input type="checkbox" id="1" name="holiday" onChange={event => handleHolidayChange(event)}/>
+                        <input type="checkbox" id="1" name="holiday" checked={holiday[1].status ? true : false}
+                        onChange={event => handleHolidayChange(event)}/>
                     </label>
                     <label>
                         Wed
-                        <input type="checkbox" id="2" name="holiday" onChange={event => handleHolidayChange(event)}/>
+                        <input type="checkbox" id="2" name="holiday" checked={holiday[2].status ? true : false}
+                        onChange={event => handleHolidayChange(event)}/>
                     </label>
                     <label>
                         Thu
-                        <input type="checkbox" id="3" name="holiday" onChange={event => handleHolidayChange(event)}/>
+                        <input type="checkbox" id="3" name="holiday" checked={holiday[3].status ? true : false}
+                        onChange={event => handleHolidayChange(event)}/>
                     </label>
                     <label>
                         Fri
-                        <input type="checkbox" id="4" name="holiday" onChange={event => handleHolidayChange(event)}/>
+                        <input type="checkbox" id="4" name="holiday" checked={holiday[4].status ? true : false}
+                        onChange={event => handleHolidayChange(event)}/>
                     </label>
                     <label>
                         Sat
-                        <input type="checkbox" id="5" name="holiday" onChange={event => handleHolidayChange(event)}/>
+                        <input type="checkbox" id="5" name="holiday" checked={holiday[5].status ? true : false}
+                        onChange={event => handleHolidayChange(event)}/>
                     </label>
                     <label>
                         Sun
-                        <input type="checkbox" id="6" name="holiday" onChange={event => handleHolidayChange(event)}/>
+                        <input type="checkbox" id="6" name="holiday" checked={holiday[6].status ? true : false}
+                        onChange={event => handleHolidayChange(event)}/>
                     </label>
                 </div>
 
@@ -316,6 +330,9 @@ const Form = (props) => {
             <div className="error">
                 {error ? <p>{error.error}</p> : null}
             </div>
+
+            {isSuccess ? <Message setFormToggle={props.setFormToggle} setIsSuccess={setIsSuccess} handleClearForm={handleClearForm}/> : null}
+
         </div>
     )
 }
