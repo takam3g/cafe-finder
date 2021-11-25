@@ -5,7 +5,7 @@ const usersRouter = require ('./users.js');
 
 
 router.use('/cafes', cafesRouter);
-router.use('/user', usersRouter);
+router.use('/users', usersRouter);
 
 
 
