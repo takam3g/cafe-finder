@@ -9959,10 +9959,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./src/components/header.js");
-/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form */ "./src/components/form.js");
-/* harmony import */ var _finder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./finder */ "./src/components/finder.js");
-/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer */ "./src/components/footer.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ "./src/components/Header.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Form */ "./src/components/Form.js");
+/* harmony import */ var _Finder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Finder */ "./src/components/Finder.js");
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Footer */ "./src/components/Footer.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -9997,21 +9997,21 @@ var App = function App() {
     }
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
     formToggle: formToggle,
     handleFromToggleButton: handleFromToggleButton
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", null, !formToggle ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_finder__WEBPACK_IMPORTED_MODULE_3__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", null, !formToggle ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Finder__WEBPACK_IMPORTED_MODULE_3__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
     setFormToggle: setFormToggle
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 /***/ }),
 
-/***/ "./src/components/finder.js":
+/***/ "./src/components/Finder.js":
 /*!**********************************!*\
-  !*** ./src/components/finder.js ***!
+  !*** ./src/components/Finder.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -10283,9 +10283,9 @@ var Finder = function Finder() {
 
 /***/ }),
 
-/***/ "./src/components/footer.js":
+/***/ "./src/components/Footer.js":
 /*!**********************************!*\
-  !*** ./src/components/footer.js ***!
+  !*** ./src/components/Footer.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -10305,9 +10305,9 @@ var Footer = function Footer() {
 
 /***/ }),
 
-/***/ "./src/components/form.js":
+/***/ "./src/components/Form.js":
 /*!********************************!*\
-  !*** ./src/components/form.js ***!
+  !*** ./src/components/Form.js ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -10319,7 +10319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message */ "./src/components/message.js");
+/* harmony import */ var _Message__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Message */ "./src/components/Message.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -10434,7 +10434,7 @@ var Form = function Form(props) {
   var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState30 = _slicedToArray(_useState29, 2),
       openHoursShow = _useState30[0],
-      setOpenHoursShow = _useState30[1]; //for error
+      setOpenHoursShow = _useState30[1]; //for error message
 
 
   var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
@@ -10442,7 +10442,7 @@ var Form = function Form(props) {
       error = _useState32[0],
       setError = _useState32[1];
 
-  console.log(error); //Success Message
+  console.log(error); //for success Message
 
   var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState34 = _slicedToArray(_useState33, 2),
@@ -10833,10 +10833,12 @@ var Form = function Form(props) {
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "error"
-  }, error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, error.error) : null), isSuccess ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_message__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, error.error) : null), isSuccess ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Message__WEBPACK_IMPORTED_MODULE_2__["default"], {
     setFormToggle: props.setFormToggle,
     setIsSuccess: setIsSuccess,
-    handleClearForm: handleClearForm
+    setError: setError,
+    handleClearForm: handleClearForm,
+    message: "New Cafe has been successfully added!"
   }) : null);
 };
 
@@ -10844,9 +10846,9 @@ var Form = function Form(props) {
 
 /***/ }),
 
-/***/ "./src/components/header.js":
+/***/ "./src/components/Header.js":
 /*!**********************************!*\
-  !*** ./src/components/header.js ***!
+  !*** ./src/components/Header.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -10863,20 +10865,20 @@ var Header = function Header(props) {
     onClick: function onClick(event) {
       return props.handleFromToggleButton(event);
     }
-  }, "Input New Cafe") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+  }, "Input Cafe") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     onClick: function onClick(event) {
       return props.handleFromToggleButton(event);
     }
-  }, "Go Back to Finder"));
+  }, "Go to Finder"));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
 
 /***/ }),
 
-/***/ "./src/components/message.js":
+/***/ "./src/components/Message.js":
 /*!***********************************!*\
-  !*** ./src/components/message.js ***!
+  !*** ./src/components/Message.js ***!
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -10889,14 +10891,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Message = function Message(props) {
+  //Go to Finder
+  //Close Message, Switch to Finder
   var handleGoToFinderChange = function handleGoToFinderChange(event) {
     props.setIsSuccess(false);
     props.setFormToggle(false);
-  };
+  }; //Add another Cafe
+  //Close Message, Clear states of each field,  clear error
+
 
   var handleStayInFormChange = function handleStayInFormChange(event) {
     props.setIsSuccess(false);
     props.handleClearForm();
+    props.setError(null);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -10936,7 +10943,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*************************************/\n/************    Reset   *************/\n/*************************************/\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n\n/*************************************/\n/***********   Variables   ***********/\n/*************************************/\n/*************************************/\n/************   Header   *************/\n/*************************************/\nheader {\n  display: flex;\n  justify-content: space-between;\n  background-color: #4BAECE;\n  align-items: center;\n}\n\nheader h1 {\n  color: white;\n  padding: 1.5rem;\n}\n\nheader h1 span {\n  font-size: 1rem;\n}\n\nheader button {\n  background-color: white;\n  color: #4BAECE;\n  padding: 0.5rem 2rem;\n  height: 2rem;\n  border: none;\n  border-radius: 30px;\n  margin: 0 1.5rem;\n}\n\n/*************************************/\n/*************   Form   **************/\n/*************************************/\n.form {\n  padding: 3rem 0;\n}\n\n.form form {\n  width: 80%;\n  margin: 0 auto;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-column-gap: 1rem;\n}\n\n.form form label {\n  margin: 0.5rem 0;\n}\n\n.form form input, .form form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #E5D7C0;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.form form label span {\n  color: #898686;\n  font-size: small;\n}\n\n.form form .twentyFourHours {\n  grid-column: 1/3;\n  display: flex;\n  flex-wrap: nowrap;\n  align-items: center;\n  margin: 1rem 0;\n  width: 15%;\n}\n\n.form form .openHours {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.form form .holiday {\n  margin: 0.5rem 0;\n  grid-column: 1/3;\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  width: 90%;\n  align-items: center;\n}\n\n.form form button {\n  display: block;\n  grid-column: 1/3;\n  justify-self: center;\n  width: 30%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem 0;\n  background-color: #4BAECE;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n  color: white;\n}\n\n.form .error {\n  text-align: center;\n  color: #f1807e;\n  margin-top: 1rem;\n}\n\n/*************************************/\n/***********   Finder   *************/\n/*************************************/\n.finder {\n  color: #898686;\n}\n\n.finder .filter {\n  padding: 1.5rem;\n}\n\n.finder .filter h2 {\n  margin-bottom: 1rem;\n}\n\n.finder .filter h2:before {\n  font-family: \"Font Awesome 5 Free\";\n  font-size: 1.2rem;\n  font-weight: 600;\n  content: \"\\f0b0\";\n  margin-right: 0.5rem;\n}\n\n.finder .filter form {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.finder .filter form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  background-color: white;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.finder .filter form input {\n  color: #898686;\n}\n\n@media only screen and (min-width: 800px) {\n  .finder .filter {\n    display: grid;\n    grid-template-columns: 20% 80%;\n    align-items: center;\n  }\n  .finder .filter h2 {\n    grid-column: 1/2;\n    justify-self: start;\n    margin-bottom: 0;\n  }\n  .finder .filter form {\n    grid-column: 2/3;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder .filter form {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n\n.finder ul {\n  padding: 1rem;\n  list-style: none;\n}\n\n.finder ul li {\n  padding: 1rem;\n  margin-bottom: 1rem;\n  background-color: #E5D7C0;\n  border-radius: 20px;\n}\n\n.finder ul li h2 {\n  margin-bottom: 0.5rem;\n}\n\n.finder ul li .detailsWrapper {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 30% 65%;\n  grid-column-gap: 5%;\n  place-items: center;\n}\n\n.finder ul li .detailsWrapper img {\n  width: 100%;\n  grid-column: 1/2;\n}\n\n.finder ul li .detailsWrapper .details {\n  width: 100%;\n  grid-column: 2/3;\n  margin-top: 1rem;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  grid-row-gap: 0.5rem;\n}\n\n.finder ul li .detailsWrapper .details div {\n  display: grid;\n  grid-template-columns: 20% 80%;\n}\n\n.finder ul li .detailsWrapper .details div i {\n  justify-self: center;\n}\n\n.finder ul li .detailsWrapper .details div.featured {\n  color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));\n  padding: 0.2rem;\n  grid-gap: 0 0.1rem;\n}\n\n.finder ul li .detailsWrapper .details .holiday li {\n  font-size: 14px;\n  padding: 0.2rem 0;\n  border-radius: 0;\n  text-align: center;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.open {\n  color: white;\n  background-color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.close {\n  color: white;\n  background-color: #898686;\n}\n\n@media only screen and (min-width: 800px) {\n  .finder ul {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 1rem;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder ul {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n/*************************************/\n/***********   Message   *************/\n/*************************************/\n.message {\n  width: 30%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #E5D7C0;\n  display: grid;\n  place-items: center;\n}\n\n/*************************************/\n/***********   Footer   *************/\n/*************************************/\nfooter p {\n  color: white;\n  background-color: #4BAECE;\n  padding: 1.5rem;\n  text-align: center;\n}\n/*# sourceMappingURL=style.css.map */", "",{"version":3,"sources":["webpack://./src/style.scss","webpack://./style.css"],"names":[],"mappings":"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","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*************************************/\n/************    Reset   *************/\n/*************************************/\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n\n/*************************************/\n/***********   Variables   ***********/\n/*************************************/\n/*************************************/\n/************   Header   *************/\n/*************************************/\nheader {\n  display: flex;\n  justify-content: space-between;\n  flex-direction: column;\n  background-color: #4BAECE;\n  padding: 1.5rem 5%;\n}\n\nheader h1 {\n  color: white;\n  text-align: center;\n}\n\nheader h1 span {\n  font-size: 1rem;\n}\n\nheader button {\n  background-color: white;\n  color: #4BAECE;\n  padding: 0.5rem 2rem;\n  height: 2rem;\n  border: none;\n  border-radius: 30px;\n  margin: 0.5rem 0 0 auto;\n  width: 35%;\n}\n\n@media only screen and (min-width: 700px) {\n  header {\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n  }\n  header button {\n    width: unset;\n    margin-top: 0.5rem;\n  }\n}\n\n/*************************************/\n/*************   Form   **************/\n/*************************************/\n.form {\n  padding: 3rem 0;\n}\n\n.form form {\n  width: 80%;\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.form form label {\n  margin: 0.5rem 0;\n}\n\n.form form label span {\n  color: #898686;\n  font-size: small;\n}\n\n.form form input, .form form select {\n  display: block;\n  width: 80%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #E5D7C0;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.form form .twentyFourHours {\n  display: flex;\n  flex-wrap: nowrap;\n  align-items: center;\n  margin: 1rem 0;\n}\n\n.form form .twentyFourHours input {\n  width: 5%;\n  margin-left: 0.5rem;\n}\n\n.form form .holiday {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  width: 90%;\n  align-items: center;\n}\n\n.form form button {\n  display: block;\n  width: 30%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #4BAECE;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n  color: white;\n}\n\n@media only screen and (min-width: 700px) {\n  .form form {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-column-gap: 1rem;\n  }\n  .form form input, .form form select {\n    width: 90%;\n  }\n  .form form .twentyFourHours {\n    grid-column: 1/3;\n    width: 15%;\n  }\n  .form form .twentyFourHours input {\n    width: unset;\n    margin-left: 0.5rem;\n  }\n  .form form .openHours {\n    grid-column: 1/3;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n  }\n  .form form .holiday {\n    margin: 0.5rem 0;\n    grid-column: 1/3;\n  }\n  .form form button {\n    display: block;\n    grid-column: 1/3;\n    justify-self: center;\n  }\n}\n\n.form .error {\n  text-align: center;\n  color: #f1807e;\n  margin-top: 1rem;\n}\n\n/*************************************/\n/***********   Finder   *************/\n/*************************************/\n.finder {\n  color: #898686;\n}\n\n.finder .filter {\n  padding: 1.5rem;\n}\n\n.finder .filter h2 {\n  margin-bottom: 1rem;\n}\n\n.finder .filter h2:before {\n  font-family: \"Font Awesome 5 Free\";\n  font-size: 1.2rem;\n  font-weight: 600;\n  content: \"\\f0b0\";\n  margin-right: 0.5rem;\n}\n\n.finder .filter form {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.finder .filter form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  background-color: white;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.finder .filter form input {\n  color: #898686;\n}\n\n@media only screen and (min-width: 700px) {\n  .finder .filter {\n    display: grid;\n    grid-template-columns: 20% 80%;\n    align-items: center;\n  }\n  .finder .filter h2 {\n    grid-column: 1/2;\n    justify-self: start;\n    margin-bottom: 0;\n  }\n  .finder .filter form {\n    grid-column: 2/3;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder .filter form {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n\n.finder ul {\n  padding: 1rem;\n  list-style: none;\n}\n\n.finder ul li {\n  padding: 1rem;\n  margin-bottom: 1rem;\n  background-color: #E5D7C0;\n  border-radius: 20px;\n}\n\n.finder ul li h2 {\n  margin-bottom: 0.5rem;\n}\n\n.finder ul li .detailsWrapper {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 30% 65%;\n  grid-column-gap: 5%;\n  place-items: center;\n}\n\n.finder ul li .detailsWrapper img {\n  width: 100%;\n  grid-column: 1/2;\n}\n\n.finder ul li .detailsWrapper .details {\n  width: 100%;\n  grid-column: 2/3;\n  margin-top: 1rem;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  grid-row-gap: 0.5rem;\n}\n\n.finder ul li .detailsWrapper .details div {\n  display: grid;\n  grid-template-columns: 20% 80%;\n}\n\n.finder ul li .detailsWrapper .details div i {\n  justify-self: center;\n}\n\n.finder ul li .detailsWrapper .details div.featured {\n  color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));\n  padding: 0.2rem;\n  grid-gap: 0 0.1rem;\n}\n\n.finder ul li .detailsWrapper .details .holiday li {\n  font-size: 14px;\n  padding: 0.2rem 0;\n  border-radius: 0;\n  text-align: center;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.open {\n  color: white;\n  background-color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.close {\n  color: white;\n  background-color: #898686;\n}\n\n@media only screen and (min-width: 700px) {\n  .finder ul {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 1rem;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder ul {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n/*************************************/\n/***********   Message   *************/\n/*************************************/\n.message {\n  width: 80%;\n  height: 30%;\n  position: fixed;\n  inset: 0;\n  margin: auto;\n  background-color: #898686;\n  border-radius: 20px;\n  padding: 2rem;\n  text-align: center;\n}\n\n.message p {\n  grid-column: 1 / 3;\n  color: #f1807e;\n  font-weight: bold;\n  margin-bottom: 2rem;\n}\n\n.message button {\n  width: 70%;\n  border: 0;\n  border-radius: 30px;\n  background-color: #E5D7C0;\n  padding: 0.5rem 1rem;\n  margin-bottom: 1rem;\n}\n\n@media only screen and (min-width: 1200px) {\n  .message {\n    width: 40%;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-template-rows: repeat(2, 1fr);\n    place-items: center;\n  }\n}\n\n/*************************************/\n/***********   Footer   *************/\n/*************************************/\nfooter p {\n  color: white;\n  background-color: #4BAECE;\n  padding: 1.5rem;\n  text-align: center;\n}\n/*# sourceMappingURL=style.css.map */", "",{"version":3,"sources":["webpack://./src/style.scss","webpack://./style.css"],"names":[],"mappings":"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","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -17,13 +17,14 @@
 header {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   background-color: #4BAECE;
-  align-items: center;
+  padding: 1.5rem 5%;
 }
 
 header h1 {
   color: white;
-  padding: 1.5rem;
+  text-align: center;
 }
 
 header h1 span {
@@ -37,7 +38,20 @@ header button {
   height: 2rem;
   border: none;
   border-radius: 30px;
-  margin: 0 1.5rem;
+  margin: 0.5rem 0 0 auto;
+  width: 35%;
+}
+
+@media only screen and (min-width: 700px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header button {
+    width: unset;
+    margin-top: 0.5rem;
+  }
 }
 
 /*************************************/
@@ -49,24 +63,12 @@ header button {
 
 .form form {
   width: 80%;
+  max-width: 900px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 1rem;
 }
 
 .form form label {
   margin: 0.5rem 0;
-}
-
-.form form input, .form form select {
-  display: block;
-  width: 90%;
-  padding: 0.5rem 1rem;
-  margin: 0.3rem auto;
-  background-color: #E5D7C0;
-  border-radius: 30px;
-  border: 0.5px solid #898686;
 }
 
 .form form label span {
@@ -74,24 +76,29 @@ header button {
   font-size: small;
 }
 
+.form form input, .form form select {
+  display: block;
+  width: 80%;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem auto;
+  background-color: #E5D7C0;
+  border-radius: 30px;
+  border: 0.5px solid #898686;
+}
+
 .form form .twentyFourHours {
-  grid-column: 1/3;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   margin: 1rem 0;
-  width: 15%;
 }
 
-.form form .openHours {
-  grid-column: 1/3;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.form form .twentyFourHours input {
+  width: 5%;
+  margin-left: 0.5rem;
 }
 
 .form form .holiday {
-  margin: 0.5rem 0;
-  grid-column: 1/3;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -101,15 +108,46 @@ header button {
 
 .form form button {
   display: block;
-  grid-column: 1/3;
-  justify-self: center;
   width: 30%;
   padding: 0.5rem 1rem;
-  margin: 0.3rem 0;
+  margin: 0.3rem auto;
   background-color: #4BAECE;
   border-radius: 30px;
   border: 0.5px solid #898686;
   color: white;
+}
+
+@media only screen and (min-width: 700px) {
+  .form form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+  }
+  .form form input, .form form select {
+    width: 90%;
+  }
+  .form form .twentyFourHours {
+    grid-column: 1/3;
+    width: 15%;
+  }
+  .form form .twentyFourHours input {
+    width: unset;
+    margin-left: 0.5rem;
+  }
+  .form form .openHours {
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .form form .holiday {
+    margin: 0.5rem 0;
+    grid-column: 1/3;
+  }
+  .form form button {
+    display: block;
+    grid-column: 1/3;
+    justify-self: center;
+  }
 }
 
 .form .error {
@@ -159,7 +197,7 @@ header button {
   color: #898686;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 700px) {
   .finder .filter {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -258,7 +296,7 @@ header button {
   background-color: #898686;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 700px) {
   .finder ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -276,15 +314,41 @@ header button {
 /***********   Message   *************/
 /*************************************/
 .message {
-  width: 30%;
+  width: 80%;
+  height: 30%;
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
+  margin: auto;
+  background-color: #898686;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.message p {
+  grid-column: 1 / 3;
+  color: #f1807e;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.message button {
+  width: 70%;
+  border: 0;
+  border-radius: 30px;
   background-color: #E5D7C0;
-  display: grid;
-  place-items: center;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 1200px) {
+  .message {
+    width: 40%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+  }
 }
 
 /*************************************/

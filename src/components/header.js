@@ -10,7 +10,7 @@ const Header = (props) => {
                 <span> - Add New Cafe - </span> 
                 : null } 
             </h1>
-            {!props.formToggle ? <button onClick={event => props.handleFromToggleButton(event)}>Input New Cafe</button> : <button onClick={event => props.handleFromToggleButton(event)}>Go Back to Finder</button>}
+            {!props.formToggle ? <button onClick={event => props.handleFromToggleButton(event)}>Input Cafe</button> : <button onClick={event => props.handleFromToggleButton(event)}>Go to Finder</button>}
         </header>
     )
 }

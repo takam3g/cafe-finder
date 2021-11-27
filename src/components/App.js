@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './header';
-import Form from './form';
-import Finder from './finder';
-import Footer from './footer';
 import { useState } from 'react';
+import Header from './Header';
+import Form from './Form';
+import Finder from './Finder';
+import Footer from './Footer';
 
 const App = () => {
 

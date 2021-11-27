@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Message from './message';
+import axios from 'axios';
+import Message from './Message';
 
 const Form = (props) => {
 
@@ -25,11 +25,11 @@ const Form = (props) => {
     const [openHoursShow, setOpenHoursShow] = useState()
 
 
-    //for error
+    //for error message
     const [error, setError] = useState(null);
     console.log(error)
 
-    //Success Message
+    //for success Message
     const [isSuccess, setIsSuccess] = useState(false);
 
 
@@ -327,11 +327,13 @@ const Form = (props) => {
                 <button>Submit</button>
             </form>
 
+            {/* Error message under submit button */}
             <div className="error">
                 {error ? <p>{error.error}</p> : null}
             </div>
 
-            {isSuccess ? <Message setFormToggle={props.setFormToggle} setIsSuccess={setIsSuccess} handleClearForm={handleClearForm}/> : null}
+            {/* Success message in popup card with option of going back to finder or adding another cafe */}
+            {isSuccess ? <Message setFormToggle={props.setFormToggle} setIsSuccess={setIsSuccess} setError={setError} handleClearForm={handleClearForm} message="New Cafe has been successfully added!"/> : null}
 
         </div>
     )
