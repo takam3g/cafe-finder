@@ -70,7 +70,7 @@ header {
 
 .form{ 
 
-    padding: 3rem 0;
+    padding: 3rem;
 
     form{
 
@@ -91,7 +91,7 @@ header {
             display: block;
             width: 80%;
             padding: 0.5rem 1rem;
-            margin: 0.3rem auto;
+            margin: 0.2rem auto 1rem auto;
             background-color: $coffee;
             border-radius: 30px;
             border: 0.5px solid $gray;
@@ -101,11 +101,12 @@ header {
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
-            margin: 1rem 0;
+            margin: 2rem 0;
 
             input {
                 width: 5%; 
-                margin-left: 0.5rem;
+                height: 1rem;
+                margin: auto auto auto 0.5rem;
             }
 
         }
@@ -266,6 +267,7 @@ header {
                 img {
                     width: 100%;
                     grid-column: 1/2;
+                    border-radius: 20px;
                 }
 
                 .details {

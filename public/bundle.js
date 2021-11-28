@@ -10182,6 +10182,25 @@ var Finder = function Finder() {
     } else if (priceCode === 5) {
       return '$5.00 -';
     }
+  }; //day display convert 
+
+
+  var dayConvert = function dayConvert(dayCode) {
+    if (dayCode === 'Mon') {
+      return 'M';
+    } else if (dayCode === 'Tue') {
+      return 'T';
+    } else if (dayCode === 'Wed') {
+      return 'W';
+    } else if (dayCode === 'Thu') {
+      return 'T';
+    } else if (dayCode === 'Fri') {
+      return 'F';
+    } else if (dayCode === 'Sat') {
+      return 'S';
+    } else if (dayCode === 'Sun') {
+      return 'S';
+    }
   }; //open hours display convert 
 
 
@@ -10274,7 +10293,7 @@ var Finder = function Finder() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         key: day._id,
         className: !day.status ? "open" : "close"
-      }, day.day);
+      }, dayConvert(day.day));
     })))));
   })));
 };
@@ -10405,25 +10424,25 @@ var Form = function Form(props) {
       setClose = _useState26[1];
 
   var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
-    day: 'M',
+    day: 'Mon',
     status: false
   }, {
-    day: 'T',
+    day: 'Tue',
     status: false
   }, {
-    day: 'W',
+    day: 'Wed',
     status: false
   }, {
-    day: 'T',
+    day: 'Thu',
     status: false
   }, {
-    day: 'F',
+    day: 'Fri',
     status: false
   }, {
-    day: 'S',
+    day: 'Sat',
     status: false
   }, {
-    day: 'S',
+    day: 'Sun',
     status: false
   }]),
       _useState28 = _slicedToArray(_useState27, 2),
@@ -10453,11 +10472,11 @@ var Form = function Form(props) {
   var handleAddToCafeList = function handleAddToCafeList(event) {
     event.preventDefault();
     var formToSubmit = {
-      name: name,
-      address: address,
-      city: city,
-      province: province,
-      postalCode: postalCode,
+      name: name.trim(),
+      address: address.trim(),
+      city: city.trim(),
+      province: province.trim(),
+      postalCode: postalCode.replace(' ', ''),
       nomadFriendly: nomadFriendly,
       outlet: outlet,
       wifi: wifi,
@@ -10478,40 +10497,40 @@ var Form = function Form(props) {
 
   var handleClearForm = function handleClearForm(event) {
     //clear states
-    setName('');
-    setAddress('');
-    setCity('');
-    setProvince('');
-    setPostalCode('');
-    setPostalCode('');
-    setNomadFriendly('');
-    setOutlet('');
-    setWifi('');
-    setNoise('');
-    setPrice('');
+    setName();
+    setAddress();
+    setCity();
+    setProvince();
+    setPostalCode();
+    setPostalCode();
+    setNomadFriendly();
+    setOutlet();
+    setWifi();
+    setNoise();
+    setPrice();
     setIs24hs(false);
-    setOpen('');
-    setClose('');
+    setOpen();
+    setClose();
     setHoliday([{
-      day: 'M',
+      day: 'Mon',
       status: false
     }, {
-      day: 'T',
+      day: 'Tue',
       status: false
     }, {
-      day: 'W',
+      day: 'Wed',
       status: false
     }, {
-      day: 'T',
+      day: 'Thu',
       status: false
     }, {
-      day: 'F',
+      day: 'Fri',
       status: false
     }, {
-      day: 'S',
+      day: 'Sat',
       status: false
     }, {
-      day: 'S',
+      day: 'Sun',
       status: false
     }]);
     setOpenHoursShow('');
@@ -10519,15 +10538,15 @@ var Form = function Form(props) {
 
 
   var handleNameChange = function handleNameChange(event) {
-    setName(event.target.value.trim());
+    setName(event.target.value);
   };
 
   var handleAddressChange = function handleAddressChange(event) {
-    setAddress(event.target.value.trim());
+    setAddress(event.target.value);
   };
 
   var handleCityChange = function handleCityChange(event) {
-    setCity(event.target.value.trim());
+    setCity(event.target.value);
   };
 
   var handleProvinceChange = function handleProvinceChange(event) {
@@ -10535,7 +10554,7 @@ var Form = function Form(props) {
   };
 
   var handlePostalCodeChange = function handlePostalCodeChange(event) {
-    setPostalCode(event.target.value.replace(' ', ''));
+    setPostalCode(event.target.value);
   };
 
   var handleFriendlyChange = function handleFriendlyChange(event) {
@@ -10563,6 +10582,8 @@ var Form = function Form(props) {
       setIs24hs(false);
     } else {
       setIs24hs(true);
+      setOpen();
+      setClose();
     }
   };
 
@@ -10943,7 +10964,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*************************************/\n/************    Reset   *************/\n/*************************************/\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n\n/*************************************/\n/***********   Variables   ***********/\n/*************************************/\n/*************************************/\n/************   Header   *************/\n/*************************************/\nheader {\n  display: flex;\n  justify-content: space-between;\n  flex-direction: column;\n  background-color: #4BAECE;\n  padding: 1.5rem 5%;\n}\n\nheader h1 {\n  color: white;\n  text-align: center;\n}\n\nheader h1 span {\n  font-size: 1rem;\n}\n\nheader button {\n  background-color: white;\n  color: #4BAECE;\n  padding: 0.5rem 2rem;\n  height: 2rem;\n  border: none;\n  border-radius: 30px;\n  margin: 0.5rem 0 0 auto;\n  width: 35%;\n}\n\n@media only screen and (min-width: 700px) {\n  header {\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n  }\n  header button {\n    width: unset;\n    margin-top: 0.5rem;\n  }\n}\n\n/*************************************/\n/*************   Form   **************/\n/*************************************/\n.form {\n  padding: 3rem 0;\n}\n\n.form form {\n  width: 80%;\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.form form label {\n  margin: 0.5rem 0;\n}\n\n.form form label span {\n  color: #898686;\n  font-size: small;\n}\n\n.form form input, .form form select {\n  display: block;\n  width: 80%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #E5D7C0;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.form form .twentyFourHours {\n  display: flex;\n  flex-wrap: nowrap;\n  align-items: center;\n  margin: 1rem 0;\n}\n\n.form form .twentyFourHours input {\n  width: 5%;\n  margin-left: 0.5rem;\n}\n\n.form form .holiday {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  width: 90%;\n  align-items: center;\n}\n\n.form form button {\n  display: block;\n  width: 30%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #4BAECE;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n  color: white;\n}\n\n@media only screen and (min-width: 700px) {\n  .form form {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-column-gap: 1rem;\n  }\n  .form form input, .form form select {\n    width: 90%;\n  }\n  .form form .twentyFourHours {\n    grid-column: 1/3;\n    width: 15%;\n  }\n  .form form .twentyFourHours input {\n    width: unset;\n    margin-left: 0.5rem;\n  }\n  .form form .openHours {\n    grid-column: 1/3;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n  }\n  .form form .holiday {\n    margin: 0.5rem 0;\n    grid-column: 1/3;\n  }\n  .form form button {\n    display: block;\n    grid-column: 1/3;\n    justify-self: center;\n  }\n}\n\n.form .error {\n  text-align: center;\n  color: #f1807e;\n  margin-top: 1rem;\n}\n\n/*************************************/\n/***********   Finder   *************/\n/*************************************/\n.finder {\n  color: #898686;\n}\n\n.finder .filter {\n  padding: 1.5rem;\n}\n\n.finder .filter h2 {\n  margin-bottom: 1rem;\n}\n\n.finder .filter h2:before {\n  font-family: \"Font Awesome 5 Free\";\n  font-size: 1.2rem;\n  font-weight: 600;\n  content: \"\\f0b0\";\n  margin-right: 0.5rem;\n}\n\n.finder .filter form {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.finder .filter form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  background-color: white;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.finder .filter form input {\n  color: #898686;\n}\n\n@media only screen and (min-width: 700px) {\n  .finder .filter {\n    display: grid;\n    grid-template-columns: 20% 80%;\n    align-items: center;\n  }\n  .finder .filter h2 {\n    grid-column: 1/2;\n    justify-self: start;\n    margin-bottom: 0;\n  }\n  .finder .filter form {\n    grid-column: 2/3;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder .filter form {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n\n.finder ul {\n  padding: 1rem;\n  list-style: none;\n}\n\n.finder ul li {\n  padding: 1rem;\n  margin-bottom: 1rem;\n  background-color: #E5D7C0;\n  border-radius: 20px;\n}\n\n.finder ul li h2 {\n  margin-bottom: 0.5rem;\n}\n\n.finder ul li .detailsWrapper {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 30% 65%;\n  grid-column-gap: 5%;\n  place-items: center;\n}\n\n.finder ul li .detailsWrapper img {\n  width: 100%;\n  grid-column: 1/2;\n}\n\n.finder ul li .detailsWrapper .details {\n  width: 100%;\n  grid-column: 2/3;\n  margin-top: 1rem;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  grid-row-gap: 0.5rem;\n}\n\n.finder ul li .detailsWrapper .details div {\n  display: grid;\n  grid-template-columns: 20% 80%;\n}\n\n.finder ul li .detailsWrapper .details div i {\n  justify-self: center;\n}\n\n.finder ul li .detailsWrapper .details div.featured {\n  color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));\n  padding: 0.2rem;\n  grid-gap: 0 0.1rem;\n}\n\n.finder ul li .detailsWrapper .details .holiday li {\n  font-size: 14px;\n  padding: 0.2rem 0;\n  border-radius: 0;\n  text-align: center;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.open {\n  color: white;\n  background-color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.close {\n  color: white;\n  background-color: #898686;\n}\n\n@media only screen and (min-width: 700px) {\n  .finder ul {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 1rem;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder ul {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n/*************************************/\n/***********   Message   *************/\n/*************************************/\n.message {\n  width: 80%;\n  height: 30%;\n  position: fixed;\n  inset: 0;\n  margin: auto;\n  background-color: #898686;\n  border-radius: 20px;\n  padding: 2rem;\n  text-align: center;\n}\n\n.message p {\n  grid-column: 1 / 3;\n  color: #f1807e;\n  font-weight: bold;\n  margin-bottom: 2rem;\n}\n\n.message button {\n  width: 70%;\n  border: 0;\n  border-radius: 30px;\n  background-color: #E5D7C0;\n  padding: 0.5rem 1rem;\n  margin-bottom: 1rem;\n}\n\n@media only screen and (min-width: 1200px) {\n  .message {\n    width: 40%;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-template-rows: repeat(2, 1fr);\n    place-items: center;\n  }\n}\n\n/*************************************/\n/***********   Footer   *************/\n/*************************************/\nfooter p {\n  color: white;\n  background-color: #4BAECE;\n  padding: 1.5rem;\n  text-align: center;\n}\n/*# sourceMappingURL=style.css.map */", "",{"version":3,"sources":["webpack://./src/style.scss","webpack://./style.css"],"names":[],"mappings":"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","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*************************************/\n/************    Reset   *************/\n/*************************************/\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;\n}\n\n/*************************************/\n/***********   Variables   ***********/\n/*************************************/\n/*************************************/\n/************   Header   *************/\n/*************************************/\nheader {\n  display: flex;\n  justify-content: space-between;\n  flex-direction: column;\n  background-color: #4BAECE;\n  padding: 1.5rem 5%;\n}\n\nheader h1 {\n  color: white;\n  text-align: center;\n}\n\nheader h1 span {\n  font-size: 1rem;\n}\n\nheader button {\n  background-color: white;\n  color: #4BAECE;\n  padding: 0.5rem 2rem;\n  height: 2rem;\n  border: none;\n  border-radius: 30px;\n  margin: 0.5rem 0 0 auto;\n  width: 35%;\n}\n\n@media only screen and (min-width: 700px) {\n  header {\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n  }\n  header button {\n    width: unset;\n    margin-top: 0.5rem;\n  }\n}\n\n/*************************************/\n/*************   Form   **************/\n/*************************************/\n.form {\n  padding: 3rem;\n}\n\n.form form {\n  width: 80%;\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n.form form label {\n  margin: 0.5rem 0;\n}\n\n.form form label span {\n  color: #898686;\n  font-size: small;\n}\n\n.form form input, .form form select {\n  display: block;\n  width: 80%;\n  padding: 0.5rem 1rem;\n  margin: 0.2rem auto 1rem auto;\n  background-color: #E5D7C0;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.form form .twentyFourHours {\n  display: flex;\n  flex-wrap: nowrap;\n  align-items: center;\n  margin: 2rem 0;\n}\n\n.form form .twentyFourHours input {\n  width: 5%;\n  height: 1rem;\n  margin: auto auto auto 0.5rem;\n}\n\n.form form .holiday {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n  width: 90%;\n  align-items: center;\n}\n\n.form form button {\n  display: block;\n  width: 30%;\n  padding: 0.5rem 1rem;\n  margin: 0.3rem auto;\n  background-color: #4BAECE;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n  color: white;\n}\n\n@media only screen and (min-width: 700px) {\n  .form form {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-column-gap: 1rem;\n  }\n  .form form input, .form form select {\n    width: 90%;\n  }\n  .form form .twentyFourHours {\n    grid-column: 1/3;\n    width: 15%;\n  }\n  .form form .twentyFourHours input {\n    width: unset;\n    margin-left: 0.5rem;\n  }\n  .form form .openHours {\n    grid-column: 1/3;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n  }\n  .form form .holiday {\n    margin: 0.5rem 0;\n    grid-column: 1/3;\n  }\n  .form form button {\n    display: block;\n    grid-column: 1/3;\n    justify-self: center;\n  }\n}\n\n.form .error {\n  text-align: center;\n  color: #f1807e;\n  margin-top: 1rem;\n}\n\n/*************************************/\n/***********   Finder   *************/\n/*************************************/\n.finder {\n  color: #898686;\n}\n\n.finder .filter {\n  padding: 1.5rem;\n}\n\n.finder .filter h2 {\n  margin-bottom: 1rem;\n}\n\n.finder .filter h2:before {\n  font-family: \"Font Awesome 5 Free\";\n  font-size: 1.2rem;\n  font-weight: 600;\n  content: \"\\f0b0\";\n  margin-right: 0.5rem;\n}\n\n.finder .filter form {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n\n.finder .filter form select {\n  display: block;\n  width: 90%;\n  padding: 0.5rem 1rem;\n  background-color: white;\n  border-radius: 30px;\n  border: 0.5px solid #898686;\n}\n\n.finder .filter form input {\n  color: #898686;\n}\n\n@media only screen and (min-width: 700px) {\n  .finder .filter {\n    display: grid;\n    grid-template-columns: 20% 80%;\n    align-items: center;\n  }\n  .finder .filter h2 {\n    grid-column: 1/2;\n    justify-self: start;\n    margin-bottom: 0;\n  }\n  .finder .filter form {\n    grid-column: 2/3;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder .filter form {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n\n.finder ul {\n  padding: 1rem;\n  list-style: none;\n}\n\n.finder ul li {\n  padding: 1rem;\n  margin-bottom: 1rem;\n  background-color: #E5D7C0;\n  border-radius: 20px;\n}\n\n.finder ul li h2 {\n  margin-bottom: 0.5rem;\n}\n\n.finder ul li .detailsWrapper {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 30% 65%;\n  grid-column-gap: 5%;\n  place-items: center;\n}\n\n.finder ul li .detailsWrapper img {\n  width: 100%;\n  grid-column: 1/2;\n  border-radius: 20px;\n}\n\n.finder ul li .detailsWrapper .details {\n  width: 100%;\n  grid-column: 2/3;\n  margin-top: 1rem;\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  grid-row-gap: 0.5rem;\n}\n\n.finder ul li .detailsWrapper .details div {\n  display: grid;\n  grid-template-columns: 20% 80%;\n}\n\n.finder ul li .detailsWrapper .details div i {\n  justify-self: center;\n}\n\n.finder ul li .detailsWrapper .details div.featured {\n  color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday {\n  grid-column: 1/3;\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));\n  padding: 0.2rem;\n  grid-gap: 0 0.1rem;\n}\n\n.finder ul li .detailsWrapper .details .holiday li {\n  font-size: 14px;\n  padding: 0.2rem 0;\n  border-radius: 0;\n  text-align: center;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.open {\n  color: white;\n  background-color: #4BAECE;\n}\n\n.finder ul li .detailsWrapper .details .holiday li.close {\n  color: white;\n  background-color: #898686;\n}\n\n@media only screen and (min-width: 700px) {\n  .finder ul {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-gap: 1rem;\n  }\n}\n\n@media only screen and (min-width: 1200px) {\n  .finder ul {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n/*************************************/\n/***********   Message   *************/\n/*************************************/\n.message {\n  width: 80%;\n  height: 30%;\n  position: fixed;\n  inset: 0;\n  margin: auto;\n  background-color: #898686;\n  border-radius: 20px;\n  padding: 2rem;\n  text-align: center;\n}\n\n.message p {\n  grid-column: 1 / 3;\n  color: #f1807e;\n  font-weight: bold;\n  margin-bottom: 2rem;\n}\n\n.message button {\n  width: 70%;\n  border: 0;\n  border-radius: 30px;\n  background-color: #E5D7C0;\n  padding: 0.5rem 1rem;\n  margin-bottom: 1rem;\n}\n\n@media only screen and (min-width: 1200px) {\n  .message {\n    width: 40%;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    grid-template-rows: repeat(2, 1fr);\n    place-items: center;\n  }\n}\n\n/*************************************/\n/***********   Footer   *************/\n/*************************************/\nfooter p {\n  color: white;\n  background-color: #4BAECE;\n  padding: 1.5rem;\n  text-align: center;\n}\n/*# sourceMappingURL=style.css.map */", "",{"version":3,"sources":["webpack://./src/style.scss","webpack://./style.css"],"names":[],"mappings":"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","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

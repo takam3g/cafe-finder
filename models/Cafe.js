@@ -23,9 +23,8 @@ const CafeSchema = new Schema({
 
     province:{
         type: String, 
-        required: [true, 'Province field is required'], 
-        minLength: 2,
-        maxLength: 2
+        enum: ['AB', 'BC', 'MB', 'NB', 'NF', 'NT', 'NU', 'ON', 'PE', 'PQ', 'SK', 'YT'],
+        required: [true, 'Province field is required'],
     },
 
     postalCode: {
@@ -61,8 +60,7 @@ const CafeSchema = new Schema({
 
     price: {
         type: Number,
-        min: 1,
-        max: 5,
+        enum: [1, 2, 3, 4, 5],
         required: [true, 'Price field is required'],
     },
 
@@ -84,6 +82,7 @@ const CafeSchema = new Schema({
     holiday: [{
         day: {
             type: String,
+            enum: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
         status: {
             type: Boolean,

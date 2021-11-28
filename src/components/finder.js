@@ -141,6 +141,26 @@ const Finder = () => {
     }
 
 
+    //day display convert 
+    const dayConvert = (dayCode) => {
+        if(dayCode==='Mon'){
+            return 'M'
+        } else if (dayCode==='Tue'){
+            return 'T'
+        } else if (dayCode==='Wed'){
+            return 'W'
+        } else if (dayCode==='Thu'){
+            return 'T'
+        } else if (dayCode==='Fri'){
+            return 'F'
+        } else if (dayCode==='Sat'){
+            return 'S'
+        } else if (dayCode==='Sun'){
+            return 'S'
+        }
+    }
+
+
     //open hours display convert 
     const openHoursConvert = (cafe) => {
         if(cafe.is24hs){
@@ -234,7 +254,7 @@ const Finder = () => {
                                 <ul className="holiday">
                                     {cafe.holiday.map(day => 
                                     <li key={day._id} className={!day.status ? "open" : "close"}>
-                                    {day.day}</li>)}
+                                    {dayConvert(day.day)}</li>)}
                                 </ul>
                             </div>
                         </div>

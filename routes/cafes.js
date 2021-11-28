@@ -1,10 +1,11 @@
 const router = require('express').Router({mergeParams:true});
+const { validateCafe } = require('../middleware/validators');
 
 const {postCafe, getCafes, getCafe, modifyCafe, /*deleteCafe*/} = require('../controllers/cafeControllers.js');
 
 
 //POST route
-router.post('/', postCafe);
+router.post('/', validateCafe, postCafe);
 
 
 //GET route to get all cafes 

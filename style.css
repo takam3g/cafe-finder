@@ -58,7 +58,7 @@ header button {
 /*************   Form   **************/
 /*************************************/
 .form {
-  padding: 3rem 0;
+  padding: 3rem;
 }
 
 .form form {
@@ -80,7 +80,7 @@ header button {
   display: block;
   width: 80%;
   padding: 0.5rem 1rem;
-  margin: 0.3rem auto;
+  margin: 0.2rem auto 1rem auto;
   background-color: #E5D7C0;
   border-radius: 30px;
   border: 0.5px solid #898686;
@@ -90,12 +90,13 @@ header button {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .form form .twentyFourHours input {
   width: 5%;
-  margin-left: 0.5rem;
+  height: 1rem;
+  margin: auto auto auto 0.5rem;
 }
 
 .form form .holiday {
@@ -246,6 +247,7 @@ header button {
 .finder ul li .detailsWrapper img {
   width: 100%;
   grid-column: 1/2;
+  border-radius: 20px;
 }
 
 .finder ul li .detailsWrapper .details {

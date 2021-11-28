@@ -20,7 +20,7 @@ const Form = (props) => {
     const [open, setOpen] = useState()
     const [close, setClose] = useState()
     const [holiday, setHoliday] = useState([
-        {day:'M', status:false}, {day:'T', status:false}, {day:'W', status:false},{day:'T', status:false}, {day:'F', status:false}, {day:'S', status:false}, {day:'S', status:false}
+        {day:'Mon', status:false}, {day:'Tue', status:false}, {day:'Wed', status:false},{day:'Thu', status:false}, {day:'Fri', status:false}, {day:'Sat', status:false}, {day:'Sun', status:false}
         ])  //true = holiday(closed)
     const [openHoursShow, setOpenHoursShow] = useState()
 
@@ -38,11 +38,11 @@ const Form = (props) => {
         event.preventDefault();
 
         const formToSubmit = {
-            name: name,
-            address: address,
-            city: city,
-            province: province,
-            postalCode: postalCode,
+            name: name.trim(),
+            address: address.trim(),
+            city: city.trim(),
+            province: province.trim(),
+            postalCode: postalCode.replace(' ', ''),
             nomadFriendly: nomadFriendly,
             outlet: outlet,
             wifi: wifi,
@@ -66,22 +66,22 @@ const Form = (props) => {
 
     const handleClearForm = (event) => { 
         //clear states
-        setName('')
-        setAddress('')
-        setCity('')
-        setProvince('')
-        setPostalCode('')
-        setPostalCode('')
-        setNomadFriendly('')
-        setOutlet('')
-        setWifi('')
-        setNoise('')
-        setPrice('')
+        setName()
+        setAddress()
+        setCity()
+        setProvince()
+        setPostalCode()
+        setPostalCode()
+        setNomadFriendly()
+        setOutlet()
+        setWifi()
+        setNoise()
+        setPrice()
         setIs24hs(false)
-        setOpen('')
-        setClose('')
+        setOpen()
+        setClose()
         setHoliday([
-            {day:'M', status:false}, {day:'T', status:false}, {day:'W', status:false},{day:'T', status:false}, {day:'F', status:false}, {day:'S', status:false}, {day:'S', status:false}
+            {day:'Mon', status:false}, {day:'Tue', status:false}, {day:'Wed', status:false},{day:'Thu', status:false}, {day:'Fri', status:false}, {day:'Sat', status:false}, {day:'Sun', status:false}
             ])
         setOpenHoursShow('')
     }
@@ -90,15 +90,15 @@ const Form = (props) => {
 
     //onChanges
     const handleNameChange = (event) => {
-        setName(event.target.value.trim())
+        setName(event.target.value)
     }
 
     const handleAddressChange = (event) => {
-        setAddress(event.target.value.trim())
+        setAddress(event.target.value)
     }
 
     const handleCityChange = (event) => {
-        setCity(event.target.value.trim())
+        setCity(event.target.value)
     }
 
     const handleProvinceChange = (event) => {
@@ -106,7 +106,7 @@ const Form = (props) => {
     }
 
     const handlePostalCodeChange = (event) => {
-        setPostalCode(event.target.value.replace(' ', ''))
+        setPostalCode(event.target.value)
     }
 
     const handleFriendlyChange = (event) => {
@@ -134,6 +134,8 @@ const Form = (props) => {
             setIs24hs(false)
         } else {
             setIs24hs(true)
+            setOpen()
+            setClose()
         }
     }
 
@@ -216,7 +218,7 @@ const Form = (props) => {
 
                 <label>
                     Nomad Friendly:
-                    <select defaultValue='' required value={nomadFriendly}onChange={event => handleFriendlyChange(event)} >
+                    <select defaultValue='' required value={nomadFriendly} onChange={event => handleFriendlyChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not for Nomad </option>
                         <option value='1'> Neutral </option>
@@ -226,7 +228,7 @@ const Form = (props) => {
 
                 <label>
                     Outlet:
-                    <select defaultValue='' required value={outlet}onChange={event => handleOutletChange(event)} >
+                    <select defaultValue='' required value={outlet} onChange={event => handleOutletChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not Available </option>
                         <option value='1'> Available </option>
@@ -256,7 +258,7 @@ const Form = (props) => {
 
                 <label>
                     Regular Coffee Price:
-                    <select defaultValue='' required value={price}onChange={event => handlePriceChange(event)} >
+                    <select defaultValue='' required value={price} onChange={event => handlePriceChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='1'> - $1.99 </option>
                         <option value='2'> $2.00 - $2.99 </option>
@@ -275,12 +277,12 @@ const Form = (props) => {
                     <div className="openHours">
                         <label>
                             Open:
-                            <input type="time" required value={open}onChange={event => handleOpenChange(event)}/>
+                            <input type="time" required value={open} onChange={event => handleOpenChange(event)}/>
                         </label>
 
                         <label>
                             Close:
-                            <input type="time" required value={close}onChange={event => handleCloseChange(event)}/>
+                            <input type="time" required value={close} onChange={event => handleCloseChange(event)}/>
                         </label>
                     </div>
                     : null
