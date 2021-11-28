@@ -83,8 +83,13 @@ header {
         }
 
         label span {
-            color: $gray;
+            color: $caution;
             font-size: small;
+            margin: 0 0.2rem;
+        }
+
+        .eg {
+            color: $dark-gray;
         }
 
         input, select {
@@ -259,6 +264,7 @@ header {
             .detailsWrapper {
 
                 width: 100%;
+                margin-top: 1rem;
                 display: grid;
                 grid-template-columns: 30% 65%;
                 grid-column-gap: 5%;

@@ -27,7 +27,6 @@ const Form = (props) => {
 
     //for error message
     const [error, setError] = useState(null);
-    console.log(error)
 
     //for success Message
     const [isSuccess, setIsSuccess] = useState(false);
@@ -56,7 +55,6 @@ const Form = (props) => {
 
         axios.post(`/api/v1/cafes`, formToSubmit)
         .then(result => {
-            console.log(result.data)
             setIsSuccess(true);
         })
         .catch(error => {
@@ -66,20 +64,20 @@ const Form = (props) => {
 
     const handleClearForm = (event) => { 
         //clear states
-        setName()
-        setAddress()
-        setCity()
-        setProvince()
-        setPostalCode()
-        setPostalCode()
-        setNomadFriendly()
-        setOutlet()
-        setWifi()
-        setNoise()
-        setPrice()
+        setName('')
+        setAddress('')
+        setCity('')
+        setProvince('')
+        setPostalCode('')
+        setPostalCode('')
+        setNomadFriendly('')
+        setOutlet('')
+        setWifi('')
+        setNoise('')
+        setPrice('')
         setIs24hs(false)
-        setOpen()
-        setClose()
+        setOpen('')
+        setClose('')
         setHoliday([
             {day:'Mon', status:false}, {day:'Tue', status:false}, {day:'Wed', status:false},{day:'Thu', status:false}, {day:'Fri', status:false}, {day:'Sat', status:false}, {day:'Sun', status:false}
             ])
@@ -178,22 +176,22 @@ const Form = (props) => {
         <div className="form">
             <form onSubmit={event=> handleAddToCafeList(event)}>
                 <label>
-                    Name:
+                    Name<span>*</span>:
                     <input type="text" required value={name} onChange={event => handleNameChange(event)}/>
                 </label>
 
                 <label>
-                    Address:
+                    Address<span>*</span>:
                     <input type="text" required value={address} onChange={event => handleAddressChange(event)}/>
                 </label>
 
                 <label>
-                    City:
+                    City<span>*</span>:
                     <input type="text" required value={city} onChange={event => handleCityChange(event)}/>
                 </label>
 
                 <label>
-                    Province:
+                    Province<span>*</span>:
                     <select defaultValue='' required value={province} onChange={event => handleProvinceChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='AB'> AB </option>
@@ -212,12 +210,12 @@ const Form = (props) => {
                 </label>
 
                 <label>
-                    Postal Code:  <span> &#10088;e.g. V5Y2Z6&#10089;</span>
+                    Postal Code<span>*</span>:  <span className="eg"> &#10088;e.g. V5Y2Z6&#10089;</span>
                     <input type="text" required value={postalCode} onChange={event => handlePostalCodeChange(event)}/>
                 </label>
 
                 <label>
-                    Nomad Friendly:
+                    Nomad Friendly<span>*</span>:
                     <select defaultValue='' required value={nomadFriendly} onChange={event => handleFriendlyChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not for Nomad </option>
@@ -227,7 +225,7 @@ const Form = (props) => {
                 </label>
 
                 <label>
-                    Outlet:
+                    Outlet<span>*</span>:
                     <select defaultValue='' required value={outlet} onChange={event => handleOutletChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not Available </option>
@@ -237,7 +235,7 @@ const Form = (props) => {
                 </label>
 
                 <label>
-                    Free wifi:
+                    Free wifi<span>*</span>:
                     <select defaultValue='' required value={wifi} onChange={event => handleWifiChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Not Available </option>
@@ -247,7 +245,7 @@ const Form = (props) => {
                 </label>
 
                 <label>
-                    Noise:
+                    Noise<span>*</span>:
                     <select defaultValue='' required value={noise} onChange={event => handleNoiseChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='0'> Noisy </option>
@@ -257,7 +255,7 @@ const Form = (props) => {
                 </label>
 
                 <label>
-                    Regular Coffee Price:
+                    Regular Coffee Price<span>*</span>:
                     <select defaultValue='' required value={price} onChange={event => handlePriceChange(event)} >
                         <option disabled value=''> -- Please select -- </option>
                         <option value='1'> - $1.99 </option>
@@ -276,12 +274,12 @@ const Form = (props) => {
                 {openHoursShow ? 
                     <div className="openHours">
                         <label>
-                            Open:
+                            Open<span>*</span>:
                             <input type="time" required value={open} onChange={event => handleOpenChange(event)}/>
                         </label>
 
                         <label>
-                            Close:
+                            Close<span>*</span>:
                             <input type="time" required value={close} onChange={event => handleCloseChange(event)}/>
                         </label>
                     </div>

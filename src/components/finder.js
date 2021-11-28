@@ -69,7 +69,6 @@ const Finder = () => {
         
         axios.get(`/api/v1/cafes${filter}`)
         .then(result => {
-            console.log(result.data)
             setCafeList(result.data)
         })
         .catch(error => console.log(error))

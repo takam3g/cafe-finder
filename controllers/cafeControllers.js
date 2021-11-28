@@ -1,7 +1,6 @@
 const Cafe = require('../models/Cafe.js');
 
 const postCafe = (req, res) => {
-    // console.log(req.body)
 
     const {
         name,
@@ -59,9 +58,7 @@ const postCafe = (req, res) => {
                 field: error.keyValue,
             })
         } else {
-            res.status(500).json({
-                error: error.message
-            })
+            res.status(500).json({error: error.message})
         }
     });
 };
@@ -107,38 +104,41 @@ const getCafes = (req, res) => {
         })
         .catch(error => {
             res.status(500).json({error: error});
-            console.log(error)
         });
     }
 
 };
 
 
-const getCafe = (req, res) => {
+/******************************************/
+/******* For future development ***********/
+/******************************************/
+// const getCafe = (req, res) => {
 
-    Cafe.findOne({'_id': req.params.cafeId}).exec()
-    .then(result => {
-        res.status(200).json(result);
-    })
-    .catch(error => {
-        res.status(500).json({error:error})
-    });
+//     Cafe.findOne({'_id': req.params.cafeId}).exec()
+//     .then(result => {
+//         res.status(200).json(result);
+//     })
+//     .catch(error => {
+//         res.status(500).json({error:error})
+//     });
 
-};
+// };
 
 
-const modifyCafe = (req, res) => {
+// const modifyCafe = (req, res) => {
 
-    const newData = ({...req.body})
+//     const newData = ({...req.body})
 
-    Cafe.findOneAndUpdate({ _id: req.farmId }, { $set: newData }, { new: true })
-        .then((result) => {
-            res.status(201).json(result)
-        })
-        .catch((error) => {
-            res.status(500).json({ error: error })
-        })
-};
+//     Cafe.findOneAndUpdate({ _id: req.farmId }, { $set: newData }, { new: true })
+//         .then((result) => {
+//             res.status(201).json(result)
+//         })
+//         .catch((error) => {
+//             res.status(500).json({ error: error })
+//         })
+// };
+
 
 //Better not to allow delete..
 
@@ -157,4 +157,4 @@ const modifyCafe = (req, res) => {
 
 
 
-module.exports = {postCafe, getCafes, getCafe, modifyCafe, /*deleteCafe*/};
+module.exports = {postCafe, getCafes, /*getCafe, modifyCafe, deleteCafe*/};

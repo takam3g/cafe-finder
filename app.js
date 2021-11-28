@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 8080
 //Run server only after database is connected
 connected 
 .then(()=>{
-    console.log('connected');
     const server = app.listen(PORT, () => console.log("Listening on 8080"));
 });
 

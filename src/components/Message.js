@@ -13,7 +13,7 @@ const Message = (props) => {
     //Close Message, Clear states of each field,  clear error
     const handleStayInFormChange = (event) => {
         props.setIsSuccess(false);
-        props.handleClearForm();
+        props.handleClearForm(event);
         props.setError(null)
     }
 
