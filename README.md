@@ -5,8 +5,8 @@ This cafe-finder is to save information about cafe and look for a cafe which is 
 
 ## How to use 
 When user open the app, it will go to Finder view.
-https://user-images.githubusercontent.com/84117994/143735719-3d32482b-0580-4f12-ad93-409d46c3422a.mov
-https://user-images.githubusercontent.com/84117994/143750039-89fd76f0-e12f-4c29-beea-fa00fdd23f20.mp4
+(https://user-images.githubusercontent.com/84117994/143735719-3d32482b-0580-4f12-ad93-409d46c3422a.mov)
+(https://user-images.githubusercontent.com/84117994/143750039-89fd76f0-e12f-4c29-beea-fa00fdd23f20.mp4)
 ### Form 
 - To input information for new Cafe, click "Input Cafe" on top-right, fill the form and click "submit"
 - If it was not successful, error message will be shown under the submit button.
