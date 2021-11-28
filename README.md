@@ -77,6 +77,11 @@ When user open the app, it will go to Finder view.
    <img src="https://user-images.githubusercontent.com/84117994/143734496-44fff2e6-ba91-4cb3-a98f-04424377cdf0.png" width=200px>
 
 
+## Tech Stack 
+- Front-end: React, SCSS
+- Back-end: Node.js, Express
+- Database: MongoDB
+
 
 ## Future Developments
 - Image upload
