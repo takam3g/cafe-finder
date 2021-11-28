@@ -5,16 +5,18 @@ This cafe-finder is to save information about cafe and look for a cafe which is 
 
 ## How to use 
 When user open the app, it will go to Finder view.
-    ![Finder HowTo](https://user-images.githubusercontent.com/84117994/143757899-307e809f-3858-4111-9865-703877abc43a.mov)
-    ![Form HowTo](https://user-images.githubusercontent.com/84117994/143758163-7ca90f84-cddf-40ab-b749-7f07f567315e.mp4)
 
 ### Form 
 - To input information for new Cafe, click "Input Cafe" on top-right, fill the form and click "submit"
 - If it was not successful, error message will be shown under the submit button.
 - If successfully submitted, user will get a popup massage with options either to go to finder view or to add another cafe. 
+
+    https://user-images.githubusercontent.com/84117994/143758163-7ca90f84-cddf-40ab-b749-7f07f567315e.mp4
 ### Finder 
 - User will see all the list of cafes as default. 
 - User can filter the cafes by Nomad Friendly, Outlet, Wifi, Noise.
+
+    https://user-images.githubusercontent.com/84117994/143757899-307e809f-3858-4111-9865-703877abc43a.mov
 
 ## Installation 
 - Clone or download this repository
@@ -45,24 +47,34 @@ When user open the app, it will go to Finder view.
     - open (String, required when is24hs is false )
     - close (String, required when is24hs is false ) 
     - holiday(Array of Object (day: String (Mon, Tue, Wed, Thu, Fri, Sat, Sun) status: Boolean))
-- Request:  
-    ![Request Sample](https://user-images.githubusercontent.com/84117994/143733927-30a0aff8-f8ee-48a6-8c0d-754eaa01f284.png)
+- Request:
+    
+     <img src="https://user-images.githubusercontent.com/84117994/143733927-30a0aff8-f8ee-48a6-8c0d-754eaa01f284.png" width=200px>
+
 - Success Response: 
-    ![Success Respond Sample](https://user-images.githubusercontent.com/84117994/143733993-b1b48852-b5e5-42d8-a20a-5e855aefcd10.png)
+
+     <img src="https://user-images.githubusercontent.com/84117994/143733993-b1b48852-b5e5-42d8-a20a-5e855aefcd10.png" width=200px>
+
 - Error Response: 
-    ![Error Respond Sample1](https://user-images.githubusercontent.com/84117994/143734053-008713f2-9ac0-4dd3-ba76-2be4b9afce16.png) 
-    ![Error Respond Sample2](https://user-images.githubusercontent.com/84117994/143734015-e39530b4-aa82-4284-9195-b31cc9b1d803.png)
+
+     <img src="https://user-images.githubusercontent.com/84117994/143734015-e39530b4-aa82-4284-9195-b31cc9b1d803.png" width=200px>
+
+     <img src="https://user-images.githubusercontent.com/84117994/143734053-008713f2-9ac0-4dd3-ba76-2be4b9afce16.png" width=200px>
+
 ### Get All Cafes
 - Method: GET
 - Endpoint: "api/v1/cafes"  
 - Response: 
-    ![Request Sample](https://user-images.githubusercontent.com/84117994/143733892-a811520a-09f3-40b8-8219-ce82c5714440.png)
+
+     <img src="https://user-images.githubusercontent.com/84117994/143733892-a811520a-09f3-40b8-8219-ce82c5714440.png" width=200px>
+
 ### Get All Cafes with filter
 - Method: GET
 - Endpoint: "api/v1/cafes?{filter}" for {filter}, please see the sample below
 - Filter Sample: "outlet=1" will return cafes with outlet 1(Available) and 2(Many),
 "outlet=2&noise=1" will return cafes with [outlet 2(Many) and noise 1(Moderate)] and [outlet 2(Many) and noise 2(Quiet)] 
-    ![Request Sample](https://user-images.githubusercontent.com/84117994/143734496-44fff2e6-ba91-4cb3-a98f-04424377cdf0.png)
+
+   <img src="https://user-images.githubusercontent.com/84117994/143734496-44fff2e6-ba91-4cb3-a98f-04424377cdf0.png" width=200px>
 
 
 
