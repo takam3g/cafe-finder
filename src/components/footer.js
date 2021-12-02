@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <footer>
-            <p>2021 Megumi Takashima All rights reserved.</p>
+            <p>&copy; 2021 Megumi Takashima All rights reserved.</p>
         </footer>
     )
 }
