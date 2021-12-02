@@ -21,6 +21,7 @@ When user open the app, it will go to Finder view.
 ## Installation 
 - Clone or download this repository
 - Install node_modules by "npm install"
+- Create .env file, include PORT=(Preferred Port No) and MONGODB_URL=(Database URL)
 - Run application by "npm run dev" and also "npm run watch" in another terminal
 
 ## Notes
